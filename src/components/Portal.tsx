@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import is from 'is-lite';
 
 import { canUseDOM, portalId } from '../modules/helpers';
-import { useMount, useSingleton, useUnmount } from '../modules/hooks';
+import { useMount, useUnmount } from '../modules/hooks';
 import { PlacementOptions, SelectorOrElement } from '../types';
 
 interface Props {
@@ -43,19 +43,25 @@ function ReactFloaterPortal(props: Props): JSX.Element | null {
         document.body.appendChild(node.current);
       }
     }
-  }, [portalElement, zIndex]);
 
-  useSingleton(initialize);
-
-  useMount(() => {
     if (!portalElement && !document.getElementById(portalId)) {
       if (node.current) {
         document.body.appendChild(node.current);
-      } else {
-        initialize();
       }
     }
+  }, [portalElement, zIndex]);
+
+  useMount(() => {
+    if (!canUseDOM) {
+      return;
+    }
+
+    initialize();
   });
+
+  React.useEffect(() => {
+    initialize();
+  }, [initialize]);
 
   useUnmount(() => {
     if (!canUseDOM || !node.current) {
