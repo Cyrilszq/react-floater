@@ -38,6 +38,7 @@ export default function WithStyledComponents({ cb }: any) {
         component={CustomFloater}
         disableFlip
         placement="bottom-start"
+        portalElement="#portalElement"
         styles={{
           arrow: {
             color: '#9ec2ff',

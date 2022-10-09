@@ -91,6 +91,7 @@ export default function App() {
           <Modal cb={callback} />
         </Content>
       </Block>
+      <div id="portalElement" />
       {process.env.NODE_ENV === 'production' && <Badges />}
     </Box>
   );
