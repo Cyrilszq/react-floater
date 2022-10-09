@@ -73,14 +73,14 @@ function FloaterWrapper(props: Props): JSX.Element | null {
       if (is.function(children.type)) {
         element = (
           <span ref={wrapperRef}>
-            {React.cloneElement(React.Children.only(children), {
+            {React.cloneElement(React.Children.only(children) as React.ReactElement, {
               innerRef: childRef,
               ...wrapperProps,
             })}
           </span>
         );
       } else {
-        element = React.cloneElement(React.Children.only(children), {
+        element = React.cloneElement(React.Children.only(children) as React.ReactElement, {
           ref: wrapperRef,
           ...wrapperProps,
         });

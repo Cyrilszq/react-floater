@@ -8,7 +8,6 @@ import { STATUS } from '../literals';
 export type Action = 'open' | 'close';
 export type HandlerFunction<T = HTMLElement> = (event: React.SyntheticEvent<T>) => void;
 export type PlacementOptions = PopperPlacement | 'center';
-export type PlainObject<T = any> = Record<string, T>;
 export type SelectorOrElement = string | null | HTMLElement;
 export type Statuses = ValueOf<typeof STATUS>;
 
