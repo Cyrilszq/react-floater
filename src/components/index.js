@@ -60,6 +60,7 @@ export default class ReactFloater extends React.Component {
   }
 
   static propTypes = {
+    portalElement: PropTypes.any,
     autoOpen: PropTypes.bool,
     callback: PropTypes.func,
     children: PropTypes.node,
@@ -579,6 +580,7 @@ export default class ReactFloater extends React.Component {
       style,
       target,
       title,
+      portalElement,
     } = this.props;
 
     const wrapper = (
@@ -606,6 +608,7 @@ export default class ReactFloater extends React.Component {
     return (
       <span>
         <Portal
+          portalElement={portalElement}
           hasChildren={!!children}
           id={id}
           placement={currentPlacement}

@@ -5,6 +5,7 @@ import { canUseDOM, isReact16 } from '../utils';
 
 export default class ReactFloaterPortal extends React.Component {
   static propTypes = {
+    portalElement: PropTypes.any,
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
     hasChildren: PropTypes.bool,
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -48,7 +49,7 @@ export default class ReactFloaterPortal extends React.Component {
   }
 
   appendNode() {
-    const { id, zIndex } = this.props;
+    const { id, zIndex, portalElement } = this.props;
 
     if (!this.node) {
       this.node = document.createElement('div');
@@ -62,7 +63,20 @@ export default class ReactFloaterPortal extends React.Component {
         this.node.style.zIndex = zIndex;
       }
 
-      document.body.appendChild(this.node);
+      let target = document.body;
+
+      if (portalElement) {
+        if (typeof portalElement === 'string') {
+          const portal = document.querySelector(portalElement);
+          if (portal) {
+            target = portal;
+          }
+        } else {
+          target = portalElement;
+        }
+      }
+
+      target.appendChild(this.node);
     }
   }
 

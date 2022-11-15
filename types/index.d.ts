@@ -141,6 +141,7 @@ export interface Props {
     placement?: Omit<Placement, 'center'>;
     position?: boolean;
   };
+  portalElement?: string | null | HTMLElement;
 }
 
 export interface PropsWithComponent extends Props {
