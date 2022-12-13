@@ -1,4 +1,7 @@
-forked from gilbarbara/react-floater, add props.portalElement to set portal element
+forked from gilbarbara/react-floater
+
+1. 添加 props.portalElement 来支持设置 floater 插入到哪
+2. 复制 popper.js 源码（不通过 npm 依赖引入，直接使用固定源码），并修改了 https://github.com/floating-ui/floating-ui/issues/376#issuecomment-493609289 解决 scale 问题
 
 # React Floater
 

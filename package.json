@@ -1,11 +1,14 @@
 {
   "name": "react-floater-joyride",
-  "version": "0.7.6",
+  "version": "0.7.7",
   "description": "Floaters everywhere!",
   "author": "cyrilszq <cyrilszq@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Cyrilszq/react-floater.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "homepage": "https://github.com/Cyrilszq/react-floater",
   "main": "lib/index.js",
@@ -35,7 +38,6 @@
     "deepmerge": "^4.2.2",
     "exenv": "^1.2.2",
     "is-lite": "^0.8.2",
-    "popper.js": "^1.16.0",
     "prop-types": "^15.8.1",
     "react-proptype-conditional-require": "^1.0.4",
     "tree-changes": "^0.9.1"
@@ -128,11 +130,11 @@
   "bundlesize": [
     {
       "path": "./es/index.js",
-      "maxSize": "10 kB"
+      "maxSize": "30 kB"
     },
     {
       "path": "./lib/index.js",
-      "maxSize": "10 kB"
+      "maxSize": "30 kB"
     }
   ],
   "husky": {

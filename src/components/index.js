@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import isRequiredIf from 'react-proptype-conditional-require';
-import Popper from 'popper.js';
 import deepmerge from 'deepmerge';
 import is from 'is-lite';
 import treeChanges from 'tree-changes';
+import Popper from '../source/popper';
 
 import DEFAULTS from '../defaults';
 import STATUS from '../status';
